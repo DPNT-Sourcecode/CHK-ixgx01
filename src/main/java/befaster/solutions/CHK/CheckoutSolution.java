@@ -12,6 +12,21 @@ public class CheckoutSolution {
     			return -1;
     		}
     	}
-    	return 0;
+        //Parse string sorting items
+    	int items[] = new int[specials.length];
+    	for(int item:items) {
+    		item = 0;
+    	}
+    	int sum = 0;
+    	for (int i=0;i < skus.length(); i++) {
+    		int id = skus.charAt(i) - 'A';
+    		if (specials[id].length > 0 &&  (++items[id])%specials[id][1]==0) {
+    			sum += specials[id][0] - (specials[id][1] * specials[id][0] - specials[id][2]);
+    		}else {
+    			sum += specials[id][0];
+    		}
+    	}
+    	return sum;
+    	
     }
 }
