@@ -16,7 +16,20 @@ public class ChkSolutionTest {
     }
 
     @Test
-    public void compute_sum() {
-        assertThat(chk.checkout("ABCD"), equalTo(115));
+    public void compute_chk1() {
+        assertThat(chk.checkout("ABCD"), equalTo(50+30+20+15));
+    }    
+    @Test
+    public void compute_chk2() {
+        assertThat(chk.checkout("ABCDE"), equalTo(-1));
     }
+    @Test
+    public void compute_chk3() {
+        assertThat(chk.checkout("AAABCD"), equalTo(130+30+20+15));
+    }
+    @Test
+    public void compute_chk4() {
+        assertThat(chk.checkout("ABBCD"), equalTo(50+45+20+15));
+    }
+    
 }
